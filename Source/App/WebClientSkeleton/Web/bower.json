@@ -1,0 +1,15 @@
+{
+  "name": "Web",
+  "version": "0.0.0",
+  "authors": [
+    "Md. Sabbir Ahamed <sabbiryan@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
