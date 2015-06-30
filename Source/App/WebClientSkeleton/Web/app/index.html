@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en" ng-app="myApp">
 <head>
     <meta charset="utf-8">
@@ -49,9 +49,9 @@
     </ul>-->
 
     <div ng-view></div>
-    
-    <hr/>
-    <div class="container">        
+
+    <hr />
+    <div class="container">
         <!-- FOOTER -->
         <footer class="text-center">
             <p class="pull-right"><a ng-href="#/">Back to top</a></p>
@@ -66,15 +66,20 @@
     <script src="libs/scripts/angular/angular.js"></script>
     <script src="libs/scripts/angular/angular-route.js"></script>
     <script src="libs/scripts/angular/angular-resource.js"></script>
-    
+
     <!-- ============app scripts start from here================== -->
     <script src="scripts/app.js"></script>
+    <script src="scripts/student/student.config.js"></script>
+
 
     <script src="scripts/dashboard/dashboard.service.js"></script>
+    <script src="scripts/student/student-list/student-list.service.js"></script>
+
+
     <script src="scripts/dashboard/dashboard.controller.js"></script>
+    <script src="scripts/student/student-list/student-list.controller.js"></script>
     <script src="scripts/student/student-manage/student-manage.controller.js"></script>
     <!-- ============app scripts end============================= -->
-    
     <!-- inject:js -->
     <!-- endinject -->
 

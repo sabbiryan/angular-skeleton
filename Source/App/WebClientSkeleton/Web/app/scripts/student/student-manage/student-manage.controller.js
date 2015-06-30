@@ -1,9 +1,10 @@
 ﻿'use strict';
 
 
-app.controller('StudentManageCtrl', [
-    '$scope',
-    function ($scope) {
-        $scope.Heading = "Manage Student";
-    }
-]);
+angular.module('myApp')
+    .controller('StudentManageController', [
+        '$scope',
+        function($scope) {
+            $scope.Heading = "Manage Student";
+        }
+    ]);
