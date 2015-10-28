@@ -1,0 +1,1 @@
+"use strict";angular.module("myApp").controller("StudentManageController",["$scope",function(e){e.Heading="Manage Student"}]);

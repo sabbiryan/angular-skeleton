@@ -12,14 +12,14 @@ angular.module('myApp', ['ngRoute', 'ngResource'])
                     templateUrl: 'views/dashboard/dashboard.tpl.html',
                     controller: 'DashboardController'
                 })
-                //.when('/student-list', {
-                //    templateUrl: 'views/student/student-list/student-list.tpl.html',
-                //    controller: 'StudentListController'
-                //})
-                //.when('/student-manage', {
-                //    templateUrl: 'views/student/student-manage/student-manage.tpl.html',
-                //    controller: 'StudentManageController'
-                //})
+                .when('/student-list', {
+                    templateUrl: 'views/student/student-list/student-list.tpl.html',
+                    controller: 'StudentListController'
+                })
+                .when('/student-manage', {
+                    templateUrl: 'views/student/student-manage/student-manage.tpl.html',
+                    controller: 'StudentManageController'
+                })
                 .when('/about', {
                     templateUrl: 'views/about/about.tpl.html',
                     controller: 'AboutController'

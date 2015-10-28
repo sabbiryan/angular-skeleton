@@ -63,7 +63,7 @@ gulp.task('htmls', function () {
 
 
 
-// JS concat, strip debugging and minify
+// JS uglify
 gulp.task('scripts', function () {
 
     gulp.src(['./app/scripts/**/*.js'])        
@@ -71,22 +71,21 @@ gulp.task('scripts', function () {
         .pipe(jshint.reporter('default'))
         .pipe(plumber())
         .pipe(uglify())
-        .pipe(gulp.dest('./.temp/scripts/'))
-        .pipe(notify({ message: 'scripts minify to temp task complete' }));    
+        .pipe(gulp.dest('./dist/scripts/'))
+        .pipe(notify({ message: 'scripts uglify task complete' }));    
     
 });
 
-gulp.task('concat', ['scripts'], function(cb) {
+//gulp.task('concat', function(cb) {
 
-    gulp.src(['./.temp/scripts/app.js', './.temp/scripts/**/*.js'])
-        .pipe(concat('scripts.min.js'))
-        .pipe(stripDebug())
-        //.pipe(uglify())
-        .pipe(gulp.dest('./dist/scripts/'))
-        .pipe(notify({ message: 'scripts concat task complete' }));
+//    gulp.src(['./app/scripts/app.js', './app/scripts/**/*.js'])
+//        .pipe(concat('scripts.min.js'))
+//        .pipe(stripDebug())
+//        //.pipe(uglify())
+//        .pipe(gulp.dest('./dist/scripts/'))
+//        .pipe(notify({ message: 'scripts uglify and concat task complete' }));
 
-    del(['.temp'], cb);
-});
+//});
 
 // CSS concat, auto-prefix and minify
 gulp.task('styles', function () {
@@ -132,7 +131,7 @@ gulp.task('watch', function () {
 });
 
 // Default task
-gulp.task('default', [ 'scripts', 'styles', 'images', 'htmls', 'watch']);
+gulp.task('default', ['scripts', 'styles', 'images', 'htmls', 'watch']);
 
 // Default task
 //gulp.task('default', ['clean'], function () {
