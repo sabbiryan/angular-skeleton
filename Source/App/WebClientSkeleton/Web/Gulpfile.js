@@ -12,8 +12,6 @@
 
 
 var gulp = require('gulp'),
-    //util = require('gulp-util'),
-    //file = require('gulp-file'),
     plumber = require('gulp-plumber'),
     changed = require('gulp-changed'),
     minifyHTML = require('gulp-minify-html'),
@@ -23,17 +21,13 @@ var gulp = require('gulp'),
     jshint = require('gulp-jshint'),
     uglify = require('gulp-uglify'),
     imagemin = require('gulp-imagemin'),
-    //rename = require('gulp-rename'),
     concat = require('gulp-concat'),
     stripDebug = require('gulp-strip-debug'),
     notify = require('gulp-notify'),
-    //cache = require('gulp-cache'),
     livereload = require('gulp-livereload'),
     del = require('del'),
     inject = require('gulp-inject'),
     angularFilesort = require('gulp-angular-filesort'),
-    //preprocess = require('gulp-preprocess'),
-    //bowerFiles = require('main-bower-files'),
     stylus = require('gulp-stylus');
 
 
@@ -78,7 +72,11 @@ gulp.task('scripts', function () {
         .pipe(plumber())
         .pipe(uglify())
         .pipe(gulp.dest('./.temp/scripts/'))
-        .pipe(notify({ message: 'scripts minify to temp task complete' }));
+        .pipe(notify({ message: 'scripts minify to temp task complete' }));    
+    
+});
+
+gulp.task('concat', ['scripts'], function(cb) {
 
     gulp.src(['./.temp/scripts/app.js', './.temp/scripts/**/*.js'])
         .pipe(concat('scripts.min.js'))
@@ -86,7 +84,8 @@ gulp.task('scripts', function () {
         //.pipe(uglify())
         .pipe(gulp.dest('./dist/scripts/'))
         .pipe(notify({ message: 'scripts concat task complete' }));
-    
+
+    del(['.temp'], cb);
 });
 
 // CSS concat, auto-prefix and minify
@@ -100,122 +99,6 @@ gulp.task('styles', function () {
     
 });
 
-// SASS Styles compressed to css
-gulp.task('sass', function () {
-    gulp.src('app/sass/**/*.scss', { style: 'expanded' })
-        .pipe(concat('styles.sass.min.css'))
-        .pipe(autoprefixer('last 2 version'))
-        .pipe(minifyCSS())
-        .pipe(gulp.dest('./app/styles'))        
-        .pipe(notify({ message: 'sass task complete' }));
-});
-
-
-
-
-
-//minified css , js inject to index.html page
-gulp.task('index-dev', function () {
-
-    var target = gulp.src('./app/index.html');
-    // It's not necessary to read the files (will speed up things), we're only after their paths: 
-    var sources = gulp.src(['./app/scripts/**/*.js', './app/styles/**/*.css'], { read: false });
-
-    target
-        .pipe(inject(sources))
-        .pipe(gulp.dest('./app'))
-        .pipe(notify({ message: 'index-dev task complete' }));
-
-});
-
-//minified css , js inject to index.html page
-gulp.task('index-dev-angular', function () {
-
-    //Injecting AngularJS scripts for development
-    gulp.src('./app/index.html')
-        .pipe(inject(
-            gulp.src('./app/scripts/**/*.js') // gulp-angular-filesort depends on file contents, so don't use {read: false} here 
-            .pipe(angularFilesort())
-        ))
-        .pipe(gulp.dest('./app'))
-        .pipe(notify({ message: 'Injecting AngularJS scripts to index.html task complete' }));
-
-});
-
-//minified css , js inject to index.html page
-gulp.task('index', function () {
-
-    var target = gulp.src('./dist/index.html');
-    // It's not necessary to read the files (will speed up things), we're only after their paths: 
-    var sources = gulp.src(['./dist/scripts/**/*.js', './dist/libs/styles/**/*.css', './dist/styles/**/*.css'], { read: false });
-
-    target
-        .pipe(inject(sources))
-        .pipe(gulp.dest('./dist'))
-        .pipe(notify({ message: 'index task complete' }));
-
-});
-
-//minified css , js inject to index.html page
-gulp.task('index-angular', function () {
-
-    //Injecting AngularJS scripts for development
-    gulp.src('./dist/index.html')
-        .pipe(inject(
-            gulp.src('./dist/scripts/**/*.js') // gulp-angular-filesort depends on file contents, so don't use {read: false} here 
-            .pipe(angularFilesort())
-        ))
-        .pipe(gulp.dest('./dist'))
-        .pipe(notify({ message: 'Injecting AngularJS scripts to index.html task complete' }));
-
-});
-gulp.task('TASKNAME', function() {
-    return gulp.src('index.tpl.html')
-        .pipe(inject(
-            gulp.src(bower({ paths: 'app' }), { read: false }),
-            { name: 'bower', relative: true, transform: gulpInjectVersioningTranform }))
-        .pipe(inject(
-            gulp.src(javaScriptFiles, { read: false }),
-            { relative: true, transform: gulpInjectVersioningTranform }))
-        .pipe(inject(
-            gulp.src(cssFiles, { read: false }),
-            { relative: true, transform: gulpInjectVersioningTranform }))
-        .pipe( /* next step */);
-});
-
-var gulpInjectVersioningTranform = function (filepath, i, length, sourceFile, targetFile) {
-        var extname = path.extname(filepath);
-      if (extname === '.js' || extname === '.css') {
-            filepath += '?v=' + version;
-             return inject.transform.apply(inject.transform, [filepath, i, length, sourceFile, targetFile]);
-         }
-       else {
-             return inject.transform.apply(inject.transform, arguments);
-      }
-};
-
-
-
-
-//others required files copy to dist for production
-gulp.task('copy', function() {
-    gulp.src('./app/fonts/**/*')
-        .pipe(gulp.dest('./dist/fonts'));
-
-    gulp.src(['./app/libs/styles/**/*.css'])
-        .pipe(concat('vendors.min.css'))
-        //.pipe(autoprefixer('last 2 versions'))
-        .pipe(minifyCSS())
-        .pipe(gulp.dest('./dist/libs/styles/'))
-        .pipe(notify({ message: 'copy libs styles minify & concat task complete' }));
-
-    gulp.src(['./app/libs/scripts/**/*.js'])
-        //.pipe(concat('scripts.min.js'))
-        .pipe(stripDebug())
-        .pipe(uglify())
-        .pipe(gulp.dest('./dist/libs/scripts/'))
-        .pipe(notify({ message: 'copy libs scripts minify task complete' }));
-});
 
 
 // Clean
@@ -227,9 +110,6 @@ gulp.task('clean', function (cb) {
 
 // Watch
 gulp.task('watch', function () {
-
-    // Watch .scss files
-    gulp.watch('./app/sass/**/*.scss', ['sass']);
 
     // Watch .css files
     gulp.watch('./app/styles/**/*.css', ['styles']);
@@ -243,11 +123,6 @@ gulp.task('watch', function () {
     // Watch images files
     gulp.watch('./app/images/**/*', ['images']);
 
-    // Watch copy files
-    gulp.watch('./app/fonts/**/*', ['copy']);
-    gulp.watch('./app/libs/styles/**/*', ['copy']);
-    gulp.watch('./app/libs/scripts/**/*', ['copy']);
-
     // Create LiveReload server
     livereload.listen();
 
@@ -256,11 +131,11 @@ gulp.task('watch', function () {
 
 });
 
-//// Default task
-//gulp.task('default', [ 'scripts', 'sass', 'styles', 'images', 'htmls', 'watch']);
+// Default task
+gulp.task('default', [ 'scripts', 'styles', 'images', 'htmls', 'watch']);
 
 // Default task
-gulp.task('default', ['clean'], function () {
-    gulp.start( 'scripts', 'sass', 'styles', 'images', 'htmls', 'copy', 'watch');
-});
+//gulp.task('default', ['clean'], function () {
+//    gulp.start( 'scripts', 'styles', 'images', 'htmls', 'copy', 'watch');
+//});
 

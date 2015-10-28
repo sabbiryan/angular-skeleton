@@ -4,14 +4,16 @@
     <meta charset="utf-8">
     <title>Angular Web Skeleton</title>
 
-    <link href="libs/styles/bootstrap.css" rel="stylesheet" />
-    <link href="libs/styles/bootstrap-theme.css" rel="stylesheet" />
-    <link href="libs/styles/ng-grid.css" rel="stylesheet" />
-    <link href="libs/styles/ui-bootstrap-csp.css" rel="stylesheet" />
+
+    <link href="../Content/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="../Content/bootstrap/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="../Content/ng-grid.min.css" rel="stylesheet" />
+    <link href="../Content/ui-bootstrap-csp.css" rel="stylesheet" />
 
     <link rel="stylesheet" href="styles/app.css" />
     
     <!-- inject:css -->
+    <link rel="stylesheet" href="/app/styles/app.css">
     <!-- endinject -->
 
 </head>
@@ -59,15 +61,28 @@
         </footer>
     </div>
 
-    <!-- In production use:
-        <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
-        -->
 
-    <script src="libs/scripts/angular/angular.js"></script>
-    <script src="libs/scripts/angular/angular-route.js"></script>
-    <script src="libs/scripts/angular/angular-resource.js"></script>
+    <!-- Scripts -->
+    <script src="../Scripts/bootstrap.min.js"></script>
+    <script src="../Scripts/jquery-2.1.4.min.js"></script>
 
-    <!-- ============app scripts start from here================== -->
+
+    <!--<script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>-->
+    <script src="../Scripts/angular/angular.min.js"></script>
+    <script src="../Scripts/angular/angular-route.min.js"></script>
+    <script src="../Scripts/angular-ui-router.min.js"></script>
+    <script src="../Scripts/angular/angular-resource.min.js"></script>
+
+    <!-- angular-ui-bootstrap -->
+    <script src="../Scripts/angular-ui/ui-bootstrap.min.js"></script>
+    <script src="../Scripts/angular-ui/ui-bootstrap-tpls.min.js"></script>
+    <script src="../Scripts/angular-ui/sortable.js"></script>
+
+    <!-- ng-grid -->
+    <script src="../Scripts/ng-grid.min.js"></script>
+
+
+    <!-- app scripts -->
     <script src="scripts/app.js"></script>
     <script src="scripts/student/student.config.js"></script>
 
@@ -79,8 +94,24 @@
     <script src="scripts/dashboard/dashboard.controller.js"></script>
     <script src="scripts/student/student-list/student-list.controller.js"></script>
     <script src="scripts/student/student-manage/student-manage.controller.js"></script>
-    <!-- ============app scripts end============================= -->
+    <!-- app scripts end -->
+
     <!-- inject:js -->
+    <script src="/app/scripts/app.js"></script>
+    <script src="/app/scripts/factories.js"></script>
+    <script src="/app/scripts/about/about.config.js"></script>
+    <script src="/app/scripts/about/about.controller.js"></script>
+    <script src="/app/scripts/about/about.service.js"></script>
+    <script src="/app/scripts/dashboard/dashboard.config.js"></script>
+    <script src="/app/scripts/dashboard/dashboard.controller.js"></script>
+    <script src="/app/scripts/dashboard/dashboard.service.js"></script>
+    <script src="/app/scripts/student/student.config.js"></script>
+    <script src="/app/scripts/student/student.factory.js"></script>
+    <script src="/app/scripts/student/student-detail/student-detail.controller.js"></script>
+    <script src="/app/scripts/student/student-detail/student-detail.service.js"></script>
+    <script src="/app/scripts/student/student-list/student-list.controller.js"></script>
+    <script src="/app/scripts/student/student-list/student-list.service.js"></script>
+    <script src="/app/scripts/student/student-manage/student-manage.controller.js"></script>
     <!-- endinject -->
 
 </body>
