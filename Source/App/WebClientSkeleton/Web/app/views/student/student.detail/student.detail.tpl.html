@@ -1,0 +1,23 @@
+﻿
+<h3>{{student.Name}}</h3>
+<hr />
+
+<table class="table table-striped">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Address</th>
+        <th></th>
+    </tr>
+    <tr>
+        <td>{{student.Id }}</td>
+        <td>{{student.Name }}</td>
+        <td>{{student.Phone }}</td>
+        <td>{{student.Address}}</td>
+        <td> <a ui-sref="student.edit{studentId:[0-9]{1,4}}">Edit</a> | <a ng-href="#delete/{{student.Id}}">Delete</a> </td>
+    </tr>
+</table>
+
+<div ui-view class="slide"></div>
+

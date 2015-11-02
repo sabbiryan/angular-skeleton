@@ -1,1 +1,40 @@
-﻿
+﻿<div class="row">
+    <br/>
+
+    <div class="panel panel-primary">
+        <div class="panel-heading panel-title text-center">Dashboard</div>
+        <div class="panel-body">
+            <div class="col-sm-3">
+                <div class="panel panel-info text-center">
+                    <a href="#/d"><div class="panel-heading">Home</div></a>
+                </div>
+            </div><div class="col-sm-3">
+                <div class="panel panel-info text-center">
+                    <a href="#/s"><div class="panel-heading">Student</div></a>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="panel panel-info text-center">
+                    <a href="#/a"><div class="panel-heading">About</div></a>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="panel panel-info text-center">
+                    <a href="#/c"><div class="panel-heading">Contact</div></a>
+                </div>
+            </div>
+            
+        </div>
+        <div class="panel-footer text-left">
+            <code>
+                $urlRouterProvider <br/>
+                .when("/d", "/")<br />
+                .when("/s", "/student")<br />
+                .when("/a", "/about")<br />
+                .when("/c", "/contact")<br />
+                .otherwise("/");
+            </code>
+        </div>
+    </div>
+
+</div>

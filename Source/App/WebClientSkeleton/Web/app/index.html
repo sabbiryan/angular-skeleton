@@ -2,7 +2,7 @@
 <html lang="en" ng-app="myApp">
 <head>
     <meta charset="utf-8">
-    <title>Angular Web Skeleton</title>
+    <title ng-bind="$state.current.name + ' - Angular Web Skeleton'">Angular Web Skeleton</title>
 
 
     <link href="../Content/bootstrap/bootstrap.min.css" rel="stylesheet" />
@@ -23,7 +23,7 @@
 
     <header ng-include="'views/nav.html'"></header>
 
-    <div ui-view></div>    
+    <div ui-view class="container slide"></div>    
     
     <footer ng-include="'views/footer.html'"></footer>
 
@@ -52,15 +52,19 @@
 
     <!-- app scripts -->
     <script src="scripts/app.js"></script>
+    <script src="scripts/student/student.config.js"></script>
 
+    <script src="scripts/student/student.factory.js"></script>
 
     <script src="scripts/dashboard/dashboard.service.js"></script>
-    <script src="scripts/student/student-list/student-list.service.js"></script>
-
+    <script src="scripts/student/student.list/student.list.service.js"></script>
+    <script src="scripts/student/student.service.js"></script>
 
     <script src="scripts/dashboard/dashboard.controller.js"></script>
-    <script src="scripts/student/student-list/student-list.controller.js"></script>
-    <script src="scripts/student/student-manage/student-manage.controller.js"></script>
+    <script src="scripts/student/student.controller.js"></script>    
+    <script src="scripts/student/student.list/student.list.controller.js"></script>
+    <script src="scripts/student/student.detail/student.detail.controller.js"></script>
+    <script src="scripts/student/student.manage/student.manage.controller.js"></script>
     <!-- app scripts end -->
 
     <!-- inject:js -->
