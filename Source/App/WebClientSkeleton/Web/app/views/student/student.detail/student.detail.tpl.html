@@ -15,7 +15,7 @@
         <td>{{student.Name }}</td>
         <td>{{student.Phone }}</td>
         <td>{{student.Address}}</td>
-        <td> <a ui-sref="student.edit{studentId:[0-9]{1,4}}">Edit</a> | <a ng-href="#delete/{{student.Id}}">Delete</a> </td>
+        <td> <a class="btn btn-info" ng-click="edit(student)">Edit</a> | <a ng-href="#delete/{{student.Id}}">Delete</a> </td>
     </tr>
 </table>
 

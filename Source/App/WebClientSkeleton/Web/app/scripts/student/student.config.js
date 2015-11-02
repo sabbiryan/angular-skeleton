@@ -34,13 +34,15 @@ angular
                     }
                 })
                 .state("students.edit", {
-                    url: "/{studentId:[0-9]{1,4}}",
+                    url: "/{studentId:[0-9]{1,4}}/edit",
                     views: {
                         '': {
                             templateUrl: "views/student/student.manage/student.manage.tpl.html",
                             controller : ["$scope", "utils", "$stateParams", function($scope, utils, $stateParams) {
-                                $scope.id = $stateParams.studentId;
+                                $scope.id = $stateParams.studentId;                                
+
                                 $scope.student = utils.findById($scope.students, $scope.id);
+
                             }]
                         }
                     }
