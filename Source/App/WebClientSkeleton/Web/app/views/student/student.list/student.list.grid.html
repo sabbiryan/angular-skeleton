@@ -1,0 +1,34 @@
+﻿<!--<div class="row">
+    <div class="container">
+        <h4>{{Heading}}</h4>
+        <hr />
+        <div class="col-sm-12"> &nbsp;</div>
+
+        <table class="table table-striped">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th> Phone</th>
+                <th>Address</th>
+                <th></th>
+            </tr>
+            <tr ng-repeat="s in students ">
+                <td>{{s.Id }}</td>
+                <td>{{s.Name }}</td>
+                <td>{{s.Phone }}</td>
+                <td>{{s.Address}}</td>
+                <td> <a ng-href="#edit/{{s.Id}}">Edit</a> | <a ng-href="#details/{{s.Id}}">Details</a> | <a ng-href="#delete/{{s.Id}}">Delete</a> </td>
+            </tr>
+        </table>
+    </div>
+</div>-->
+
+
+<div class="row">
+ 
+    <div class="col-md-3">
+        <div class="gridStyle" ng-grid="gridOptions"></div>
+
+        <div class="selectedItems">{{mySelections}}</div>
+    </div>
+</div>

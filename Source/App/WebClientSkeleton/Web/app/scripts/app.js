@@ -2,7 +2,7 @@
 
 
 // Declare app level module which depends on filters, and services
-angular.module("myApp", ["ui.router", "ngResource"])
+angular.module("myApp", ["ui.router", "ngResource", "ngGrid"])
     .run([
         "$rootScope", "$state", "$stateParams",
         function($rootScope, $state, $stateParams) {

@@ -24,6 +24,56 @@ angular
                     url: "",
                     templateUrl: "views/student/student.list/student.list.tpl.html"
                 })
+                .state("students.list.grid", {
+                    url: "/gridview",
+                    views: {
+                        'nggrid@students': {
+                            templateUrl: "views/student/student.list/student.list.grid.html",
+                            controller: ["$scope", function($scope) {
+
+                                $scope.data = $scope.students;
+
+                                $scope.mySelections = [];
+
+                                $scope.gridOptions = {
+                                    data: "data",
+                                    columnDefs: [
+                                        {
+                                            field: "Id",
+                                            displayName: "ID",
+                                            cellTemplate: '<div ng-class="{green: row.getProperty(col.field) > 4}"><div class="ngCellText">{{row.getProperty(col.field)}}</div></div>',
+                                            enableCellEdit: false,
+
+                                            width: 120, pinned: true
+                                        },
+                                        { field: "Name", displayName: "NAME", enableCellEdit: true, width: 120, pinned: true },
+                                        { field: "Phone", displayName: "PHONE", enableCellEdit: true, width: 120, pinned: true },
+                                        { field: "Address", displayName: "ADDRESS", enableCellEdit: true, width: 120, pinned: true }
+                                    ],
+                                    showGroupPanel: true,
+                                    jqueryUIDraggable: true,
+
+                                    rowTemplate: '<div style="height: 100%" ng-class="{green: row.getProperty(\'Id\') < 3}"><div ng-style="{ \'cursor\': row.cursor }" ng-repeat="col in renderedColumns" ng-class="col.colIndex()" class="ngCell ">' +
+                                        '<div class="ngVerticalBar" ng-style="{height: rowHeight}" ng-class="{ ngVerticalBarVisible: !$last }"> </div>' +
+                                        '<div ng-cell></div>' +
+                                        '</div></div>',
+
+                                    //jqueryUITheme: true,
+
+                                    selectedItems: $scope.mySelections,
+                                    //multiSelect: false,
+                                    enableCellSelection: true,
+
+                                    enableRowSelection: false,
+                                    //enableCellEditOnFocus: true,
+                                    enableCellEdit: true,
+
+                                    enablePinning: true,
+                                };
+                            }]
+                        }
+                    }
+                })
                 .state("students.detail", {
                     url: "/{studentId:[0-9]{1,4}}",
                     views: {
@@ -58,6 +108,7 @@ angular
                         }
                     }
                 })
+                
                 .state("students.create", {
                     url: "/create",
                     views: {

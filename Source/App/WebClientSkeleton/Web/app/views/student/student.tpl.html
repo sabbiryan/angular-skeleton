@@ -5,10 +5,14 @@
             <ul class="nav nav-list">
                 <li ng-class="{ active: $state.includes('contacts.list') }"><a ui-sref="students.list">All Students</a></li>
                 <li ui-sref-active="active"><a ui-sref="students.create">Create Student</a></li>
+                <li ui-sref-active="active"><button class="btn btn-info" ui-sref="students.list.grid">ng Grid List</button></li>
             </ul>
         </div>
     </div>
 
     <!-- Our unnamed main ui-view for this template -->
     <div ui-view class="col-sm-9 slide"></div>
+
+
+    <div ui-view="nggrid" class="slide"></div>    
 </div>

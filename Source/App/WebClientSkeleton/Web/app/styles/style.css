@@ -18,6 +18,15 @@ textarea {
 
 .gridStyle {
     border: 1px solid rgb(212,212,212);
-    width: 400px; 
+    width: 500px; 
     height: 300px
+}
+
+.green {
+    background-color: green;
+    color: white;
+}
+
+.selectedItems{
+    float: left; 
 }
