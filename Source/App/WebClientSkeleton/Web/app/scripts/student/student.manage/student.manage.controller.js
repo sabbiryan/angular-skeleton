@@ -3,8 +3,14 @@
 
 angular.module("myApp")
     .controller("StudentManageController", [
-        "$scope",
-        function($scope) {
-            $scope.Heading = "Manage Student";
+        "$scope", "$state",
+        function($scope, $state) {
+            $scope.Heading = "Create Student";
+
+            $scope.save = function(student) {
+                alert(JSON.stringify(student));
+
+                $state.go("students.list");
+            }
         }
     ]);

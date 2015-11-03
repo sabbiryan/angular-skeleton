@@ -1,5 +1,5 @@
 ﻿
-<h3>{{student.Name}}</h3>
+<h4>{{student.Name}}</h4>
 <hr />
 
 <table class="table table-striped">
@@ -15,7 +15,7 @@
         <td>{{student.Name }}</td>
         <td>{{student.Phone }}</td>
         <td>{{student.Address}}</td>
-        <td> <a class="btn btn-info" ng-click="edit(student)">Edit</a> | <a ng-href="#delete/{{student.Id}}">Delete</a> </td>
+        <td> <a class="btn btn-info" ng-click="edit(student)">Edit</a>  <button class="btn btn-danger" ng-click="student.splice($index,1)">Delete</button> </td>
     </tr>
 </table>
 

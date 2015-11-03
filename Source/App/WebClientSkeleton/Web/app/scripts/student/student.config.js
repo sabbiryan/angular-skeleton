@@ -38,11 +38,22 @@ angular
                     views: {
                         '': {
                             templateUrl: "views/student/student.manage/student.manage.tpl.html",
-                            controller : ["$scope", "utils", "$stateParams", function($scope, utils, $stateParams) {
-                                $scope.id = $stateParams.studentId;                                
+                            controller: [
+                                "$scope", "utils", "$stateParams", "$state",
+                                function ($scope, utils, $stateParams, $state) {
+                                $scope.isEdit = true;
+
+                                $scope.id = $stateParams.studentId;
 
                                 $scope.student = utils.findById($scope.students, $scope.id);
 
+                                $scope.Heading = $scope.student.Name + " Edit";
+
+                                $scope.update = function(student) {
+                                    alert(JSON.stringify(student));
+
+                                    $state.go("students.detail", {studentId: $scope.id});
+                                }
                             }]
                         }
                     }
