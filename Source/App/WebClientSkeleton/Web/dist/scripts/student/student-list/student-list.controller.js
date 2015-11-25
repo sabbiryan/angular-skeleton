@@ -1,1 +1,0 @@
-"use strict";angular.module("myApp").controller("StudentListController",["$scope","StudentListService",function(t,e){t.Heading="Student List",t.students=[],e.get().then(function(e){t.students=e})}]);
