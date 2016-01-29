@@ -1,4 +1,18 @@
-﻿<nav class="nav navbar navbar-inverse navbar-fixed-top">
+﻿<style>
+    .navbar-default {
+        /*background-color: #00005e !important;*/
+        background-color: #218257 !important;
+    }
+
+    .navbar-brand, .navbar-nav > a {
+        color: white !important;
+    }
+    .navbar .navbar-nav li a {
+        color: white;
+    }
+</style>
+
+<nav class="nav navbar navbar-fixed-top navbar-default">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -7,14 +21,24 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" ng-href="#/">University App</a>
+            <a class="navbar-brand" ng-href="#/">App</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li ui-sref-active="active"><a ui-sref="dashboard">Home</a></li>
-                <li ng-class="{active: $state.includes('students')}"><a ui-sref="students.list">Student</a></li>
-                <li ui-sref-active="active"><a ui-sref="about">About</a></li>
-                <li ui-sref-active="active"><a ui-sref="contact">Contact</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.dashboard">Home</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.about">About</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.contact">Contact</a></li>
+                <!--<li ng-class="{active: $state.includes('students')}"><a ui-sref="students.list">Student</a></li>-->
+            </ul>
+
+            <ul class="nav navbar-nav pull-right visible-lg visible-md visible-sm">
+                <li ui-sref-active="active"><a ui-sref="signin">Sign in</a></li>
+                <li ui-sref-active="active"><a ui-sref="signout">Sign out</a></li>
+            </ul>
+
+            <ul class="nav navbar-nav pull-left visible-xs">
+                <li ng-show="!isLoggedIn"><a ui-sref="signin">Sign in</a></li>
+                <li ng-show="isLoggedIn"><a ui-sref="signout">Sign out</a></li>
             </ul>
         </div>
     </div>

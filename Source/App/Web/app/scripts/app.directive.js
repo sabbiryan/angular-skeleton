@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module("myApp")
-.directive(function(){
+angular.module("app")
+    .directive(function() {
 
-});
+    });

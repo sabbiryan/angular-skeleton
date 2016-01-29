@@ -1,1 +1,9 @@
-﻿// code goes here
+﻿"use strict";
+
+angular.module("app")
+    .controller("AboutController", [
+        "$scope",
+        function ($scope) {
+
+        }
+    ]);

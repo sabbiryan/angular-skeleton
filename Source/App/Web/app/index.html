@@ -1,21 +1,21 @@
 ﻿<!doctype html>
-<html lang="en" ng-app="myApp">
+<html lang="en">
 <head>
     <meta charset="utf-8">
-    <title ng-bind="$state.current.name + ' - Angular Web Skeleton'">Angular Web Skeleton</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home</title>
 
 
-    <link href="../Content/bootstrap/bootstrap.min.css" rel="stylesheet" />
-    <link href="../Content/bootstrap/bootstrap-theme.min.css" rel="stylesheet" />
-    <link href="../Content/materialize/css/materialize.min.css" rel="stylesheet" />
-    <link href="../Content/ng-grid.min.css" rel="stylesheet" />
-    <link href="../Content/ui-grid.min.css" rel="stylesheet" />
+    <link href="../Content/bootstrap/bootstrap.min.css" rel="stylesheet"/>
+    <link href="../Content/ng-grid.min.css" rel="stylesheet"/>
     <link href="../Content/ui-bootstrap-csp.css" rel="stylesheet" />
+    <!--<link href="../Content/bootstrap/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="../Content/materialize/css/materialize.min.css" rel="stylesheet" />
+    <link href="../Content/ui-grid.min.css" rel="stylesheet" />-->
     
     <link rel="stylesheet" href="styles/style.css" />
-    <link href="../dist/styles/styles.min.css" rel="stylesheet"/>
 
-    <style> body { padding-top: 70px; padding-bottom: 50px; } </style>
+    <style> body { padding-top: 80px; padding-bottom: 50px; } </style>
 
 
     
@@ -23,57 +23,60 @@
     <!-- endinject -->
     
 </head>
-<body>
-
-
+<body ng-app="app">
 
     <header ng-include="'views/nav.html'"></header>
 
-    <div ui-view class="container slide"></div>    
+    <div ui-view class="container-fluid slide"></div>    
     
     <footer ng-include="'views/footer.html'"></footer>
 
 
 
-
-    <!-- Scripts -->
-    <script src="../Scripts/jquery-2.1.4.min.js"></script>
+<!-- Scripts -->
+    <script src="../Scripts/jquery-2.2.0.min.js"></script>
     <script src="../Scripts/bootstrap.min.js"></script>    
-    <script src="../Scripts/materialize/materialize.min.js"></script>
+    <!--<script src="../Scripts/materialize/materialize.min.js"></script>-->
 
 
-    <!--<script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>-->
-    <script src="../Scripts/angular/angular.min.js"></script>
-    <!--<script src="../Scripts/angular/angular-route.min.js"></script>-->    
-    <script src="../Scripts/angular/angular-resource.min.js"></script>
+    <script src="../Scripts/angular.min.js"></script>
+    <script src="../Scripts/angular-animate.min.js"></script>
+    <script src="../Scripts/angular-resource.min.js"></script>
+    <!--<script src="../Scripts/angular-route.min.js"></script>-->    
 
-    <!-- angular-ui-bootstrap -->
+
+<!-- angular-ui-bootstrap -->
     <script src="../Scripts/angular-ui-router.min.js"></script>
     <script src="../Scripts/angular-ui/ui-bootstrap.min.js"></script>
     <script src="../Scripts/angular-ui/ui-bootstrap-tpls.min.js"></script>
     <script src="../Scripts/angular-ui/sortable.js"></script>
 
-    <!-- ng-grid -->
+
+<!-- ng-grid -->
     <script src="../Scripts/ng-grid.min.js"></script>
-    <script src="../Scripts/ui-grid.min.js"></script>
+    <!--<script src="../Scripts/ui-grid.min.js"></script>-->
 
 
-    <!-- app scripts -->
-    <script src="scripts/app.js"></script>
-    <script src="scripts/student/student.config.js"></script>
 
-    <script src="scripts/student/student.factory.js"></script>
+<!-- app scripts -->
+    <script src="scripts/app.config.js"></script>
+    <script src="scripts/dashboard/dashboard.config.js"></script>
 
+
+    <script src="scripts/app.directive.js"></script>
+
+
+    <script src="scripts/app.service.js"></script>
     <script src="scripts/dashboard/dashboard.service.js"></script>
-    <script src="scripts/student/student.list/student.list.service.js"></script>
-    <script src="scripts/student/student.service.js"></script>
 
+
+    <script src="scripts/app.controller.js"></script>
     <script src="scripts/dashboard/dashboard.controller.js"></script>
-    <script src="scripts/student/student.controller.js"></script>    
-    <script src="scripts/student/student.list/student.list.controller.js"></script>
-    <script src="scripts/student/student.detail/student.detail.controller.js"></script>
-    <script src="scripts/student/student.manage/student.manage.controller.js"></script>
-    <!-- app scripts end -->
+    <script src="scripts/about/about.controller.js"></script>
+    <script src="scripts/contact/contact.controller.js"></script>
+
+<!-- app scripts end -->
+
 
 
 

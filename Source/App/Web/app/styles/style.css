@@ -10,14 +10,15 @@ body {
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
-input,
+/*input,
 select,
 textarea {
     max-width: 280px;
-}
+}*/
 
 .gridStyle {
     border: 1px solid rgb(212,212,212);
-    width: 400px; 
-    height: 300px
+    width: 100%;
+    height: 450px;
+    margin-bottom: 10px
 }
