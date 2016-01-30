@@ -1,16 +1,14 @@
 "use strict";
 
 
-angular.module("app", ["ui.router", "ngResource"])
+angular.module("app", ["ui.router", "ngResource", "ngAnimate", "ngGrid", "ui.bootstrap"])
     .config([
         "$urlRouterProvider", "$stateProvider",
         function($urlRouterProvider, $stateProvider) {
 
             $urlRouterProvider
                 .when("/home", "/")
-                .when("/dashboard", "/")
-                .when("/about", "/about")
-                .when("/contact", "/contact")
+                .when("/dashboard", "/")                
                 .otherwise("/");
 
 
@@ -19,7 +17,7 @@ angular.module("app", ["ui.router", "ngResource"])
                     abstract: true,
                     url: "",
                     template: "<div ui-view class=\"container-fluid slide\"></div>",
-                    //controller : "AppController"
+                    controller : "AppController"
                 })
                 .state("app.about", {
                     url: "/about",
@@ -42,8 +40,8 @@ angular.module("app", ["ui.router", "ngResource"])
         }
     ])
     .run([
-        "$rootScope", "$state", "$stateParams",
-        function($rootScope, $state, $stateParams) {
+        "$rootScope", "$state", "$stateParams", "AuthenticationService", "AuthorizationService",
+        function ($rootScope, $state, $stateParams, AuthenticationService, AuthorizationService) {
             $rootScope.$state = $state;
             $rootScope.$stateParams = $stateParams;
 
@@ -53,22 +51,22 @@ angular.module("app", ["ui.router", "ngResource"])
                 $rootScope.toState = toState;
                 $rootScope.toStateParams = toStateParams;
 
-                var isLogin = toState.name === "login";
+                var isLogin = toState.name === "app.login";
                 if (isLogin) return;
 
-                var isAccessDenied = toState.name === "denied";
+                var isAccessDenied = toState.name === "app.accessdenied";
                 if (isAccessDenied) return;
 
 
-                //if (AuthenticationService.authenticate()) {
-                //    if (!AuthorizationService.authorize(toState)) {
-                //        event.preventDefault();
-                //        $state.go("denied");
-                //    }
-                //} else {
-                //    event.preventDefault();
-                //    $state.go("login");
-                //}
+                if (AuthenticationService.authenticate()) {
+                    if (!AuthorizationService.authorize(toState)) {
+                        event.preventDefault();
+                        $state.go("app.accessdenied");
+                    }
+                } else {
+                    event.preventDefault();
+                    $state.go("app.login");
+                }
 
 
             });

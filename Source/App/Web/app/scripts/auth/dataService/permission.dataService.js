@@ -1,6 +1,6 @@
 ﻿"use strict";
 
-angular.module("authApp")
+angular.module("app")
     .service("PermissionDataService", [
         "LocalStorageService",
         function(LocalStorageService) {
@@ -8,11 +8,10 @@ angular.module("authApp")
             return {
                 get: function() {
                     this.permissionList = [
-                        { Id: 1, UserId: 1, RoleId: 1, Permission: "admin" },
-                        { Id: 2, UserId: 1, RoleId: 1, Permission: "home" },
-                        { Id: 3, UserId: 2, RoleId: 2, Permission: "home" },
-                        { Id: 4, UserId: 3, RoleId: 3, Permission: "home" },
-                        { Id: 5, UserId: 4, RoleId: 1, Permission: "admin" },
+                        { Id: 1, UserId: 1, RoleId: 1, Permission: "app.dashboard" },
+                        { Id: 2, UserId: 1, RoleId: 1, Permission: "app.login" },
+                        { Id: 3, UserId: 1, RoleId: 1, Permission: "app.about" },
+                        { Id: 4, UserId: 1, RoleId: 1, Permission: "app.contact" },
                     ];
 
                     return this.permissionList;

@@ -1,6 +1,6 @@
 ﻿"use strict";
 
-angular.module("authApp")
+angular.module("app")
     .factory("AuthenticationService", [
         "$q", "$http", "$timeout", "UserDataService", "LocalStorageService",
         function($q, $http, $timeout, UserDataService, LocalStorageService) {

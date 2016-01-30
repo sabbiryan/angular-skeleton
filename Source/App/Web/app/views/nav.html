@@ -12,7 +12,7 @@
     }
 </style>
 
-<nav class="nav navbar navbar-fixed-top navbar-default">
+<nav class="nav navbar navbar-fixed-top navbar-default" ng-controller="AppController">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -32,14 +32,15 @@
             </ul>
 
             <ul class="nav navbar-nav pull-right visible-lg visible-md visible-sm">
-                <li ui-sref-active="active"><a ui-sref="signin">Sign in</a></li>
-                <li ui-sref-active="active"><a ui-sref="signout">Sign out</a></li>
+                <li ng-show="!isLoggedIn"><a ui-sref="app.login">Sign in</a></li>
+                <li ng-show="isLoggedIn" style="cursor: pointer"><a ng-click="logout()">Sign out</a></li>
             </ul>
 
             <ul class="nav navbar-nav pull-left visible-xs">
-                <li ng-show="!isLoggedIn"><a ui-sref="signin">Sign in</a></li>
-                <li ng-show="isLoggedIn"><a ui-sref="signout">Sign out</a></li>
+                <li ng-show="!isLoggedIn"><a ui-sref="app.login">Sign in</a></li>
+                <li ng-show="isLoggedIn" style="cursor: pointer"><a ng-click="logout()">Sign out</a></li>
             </ul>
-        </div>
+        </div>        
+
     </div>
 </nav>

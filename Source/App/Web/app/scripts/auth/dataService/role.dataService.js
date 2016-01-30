@@ -1,6 +1,6 @@
 ﻿"use strict";
 
-angular.module("authApp")
+angular.module("app")
     .service("RoleDataService", [
          function() {
              return {

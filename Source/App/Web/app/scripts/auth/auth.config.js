@@ -1,19 +1,11 @@
 ﻿"use strict";
 
-angular.module("authApp")
+angular.module("app")
     .config([
         "$stateProvider", "$urlRouterProvider", function($stateProvider, $urlRoutterProvider) {
             $stateProvider
-                .state("login", {
-                    parent: "site",
+                .state("app.login", {
                     url: "/login",
-                    resolve: {
-                        Roles : ["RoleDataService", 
-                            function(RoleDataService) {
-                                return RoleDataService.get();
-                            }
-                        ]
-                    },
                     views: {
                         '': {
                             templateUrl: "views/auth/login.tpl.html",
@@ -21,21 +13,11 @@ angular.module("authApp")
                         }
                     }
                 })
-                .state("admin", {
-                    parent: "site",
-                    url: "/admin",                   
-                    views: {
-                        '': {
-                            templateUrl: "views/admin/admin.tpl.html"
-                        }
-                    }
-                })
-                .state("denied", {
-                    parent: "site",
+                .state("app.accessdenied", {
                     url: "/access-denied",                   
                     views: {
                         '': {
-                            templateUrl: "views/auth/denied.tpl.html"
+                            templateUrl: "views/auth/access-denied.tpl.html"
                         }
                     }
                 });

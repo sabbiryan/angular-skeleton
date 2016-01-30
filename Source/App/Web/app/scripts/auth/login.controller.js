@@ -1,6 +1,6 @@
 ﻿"use strict";
 
-angular.module("authApp")
+angular.module("app")
     .controller("LoginController", [
         "$rootScope", "$scope", "$state", "AuthenticationService",
         function ($rootScope, $scope, $state, AuthenticationService) {
@@ -21,10 +21,10 @@ angular.module("authApp")
                     if ($scope.returnToState)
                         $state.go($scope.returnToState.name, $scope.returnToStateParams);
                     else
-                        $state.go("home");
+                        $state.go("app.dashboard");
 
                 } else {
-                    $state.go("login", {}, { reload: true });                    
+                    $state.go("app.login", {}, { reload: true });                    
                 }
             };
 
