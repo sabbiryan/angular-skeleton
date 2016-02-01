@@ -275,13 +275,13 @@ angular.module('ui.router.state', ['ui.router.router', 'ui.router.util']);
  * 
  * ## The main module for ui.router 
  * There are several sub-modules included with the ui.router module, however only this module is needed
- * as a dependency within your angular app. The other modules are for organization purposes. 
+ * as a dependency within your angular root. The other modules are for organization purposes. 
  *
  * The modules are:
  * * ui.router - the main "umbrella" module
  * * ui.router.router - 
  * 
- * *You'll need to include **only** this module as the dependency within your angular app.*
+ * *You'll need to include **only** this module as the dependency within your angular root.*
  * 
  * <pre>
  * <!doctype html>
@@ -1765,7 +1765,7 @@ function $UrlRouterProvider(   $locationProvider,   $urlMatcherFactory) {
    * <pre>
    * var app = angular.module('app', ['ui.router.router']);
    *
-   * app.config(function ($urlRouterProvider) {
+   * root.config(function ($urlRouterProvider) {
    *   // Here's an example of how you might allow case insensitive urls
    *   $urlRouterProvider.rule(function ($injector, $location) {
    *     var path = $location.path(),
@@ -1801,7 +1801,7 @@ function $UrlRouterProvider(   $locationProvider,   $urlMatcherFactory) {
    * <pre>
    * var app = angular.module('app', ['ui.router.router']);
    *
-   * app.config(function ($urlRouterProvider) {
+   * root.config(function ($urlRouterProvider) {
    *   // if the path doesn't match any of the urls you configured
    *   // otherwise will take care of routing the user to the
    *   // specified url
@@ -1861,7 +1861,7 @@ function $UrlRouterProvider(   $locationProvider,   $urlMatcherFactory) {
    * <pre>
    * var app = angular.module('app', ['ui.router.router']);
    *
-   * app.config(function ($urlRouterProvider) {
+   * root.config(function ($urlRouterProvider) {
    *   $urlRouterProvider.when($state.url, function ($match, $stateParams) {
    *     if ($state.$current.navigable !== state ||
    *         !equalForKeys($match, $stateParams) {
@@ -1934,7 +1934,7 @@ function $UrlRouterProvider(   $locationProvider,   $urlMatcherFactory) {
    * <pre>
    * var app = angular.module('app', ['ui.router.router']);
    *
-   * app.config(function ($urlRouterProvider) {
+   * root.config(function ($urlRouterProvider) {
    *
    *   // Prevent $urlRouter from automatically intercepting URL changes;
    *   // this allows you to configure custom behavior in between
@@ -2166,7 +2166,7 @@ angular.module('ui.router.router').provider('$urlRouter', $UrlRouterProvider);
  * commonalities in this model is via the state hierarchy, i.e. parent/child states aka
  * nested states.
  *
- * The `$stateProvider` provides interfaces to declare these states for your app.
+ * The `$stateProvider` provides interfaces to declare these states for your root.
  */
 $StateProvider.$inject = ['$urlRouterProvider', '$urlMatcherFactoryProvider'];
 function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
@@ -2955,7 +2955,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
      * <pre>
      * var app angular.module('app', ['ui.router']);
      *
-     * app.controller('ctrl', function ($scope, $state) {
+     * root.controller('ctrl', function ($scope, $state) {
      *   $scope.reload = function(){
      *     $state.reload();
      *   }
@@ -2976,7 +2976,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
      * //and current state is 'contacts.detail.item'
      * var app angular.module('app', ['ui.router']);
      *
-     * app.controller('ctrl', function ($scope, $state) {
+     * root.controller('ctrl', function ($scope, $state) {
      *   $scope.reload = function(){
      *     //will reload 'contact.detail' and 'contact.detail.item' states
      *     $state.reload('contact.detail');
@@ -3015,7 +3015,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
      * <pre>
      * var app = angular.module('app', ['ui.router']);
      *
-     * app.controller('ctrl', function ($scope, $state) {
+     * root.controller('ctrl', function ($scope, $state) {
      *   $scope.changeState = function () {
      *     $state.go('contact.detail');
      *   };
@@ -3081,7 +3081,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
      * <pre>
      * var app = angular.module('app', ['ui.router']);
      *
-     * app.controller('ctrl', function ($scope, $state) {
+     * root.controller('ctrl', function ($scope, $state) {
      *   $scope.changeState = function () {
      *     $state.transitionTo('contact.detail');
      *   };
@@ -4224,18 +4224,18 @@ function $StateRefDirective($state, $timeout) {
  * <pre>
  * <ul>
  *   <li ui-sref-active="active" class="item">
- *     <a href ui-sref="app.user({user: 'bilbobaggins'})">@bilbobaggins</a>
+ *     <a href ui-sref="root.user({user: 'bilbobaggins'})">@bilbobaggins</a>
  *   </li>
  * </ul>
  * </pre>
  *
  *
- * When the app state is "app.user" (or any children states), and contains the state parameter "user" with value "bilbobaggins",
+ * When the app state is "root.user" (or any children states), and contains the state parameter "user" with value "bilbobaggins",
  * the resulting HTML will appear as (note the 'active' class):
  * <pre>
  * <ul>
  *   <li ui-sref-active="active" class="item active">
- *     <a ui-sref="app.user({user: 'bilbobaggins'})" href="/users/bilbobaggins">@bilbobaggins</a>
+ *     <a ui-sref="root.user({user: 'bilbobaggins'})" href="/users/bilbobaggins">@bilbobaggins</a>
  *   </li>
  * </ul>
  * </pre>
@@ -4247,7 +4247,7 @@ function $StateRefDirective($state, $timeout) {
  * <pre>
  * <ul>
  *   <li ui-sref-active='class1 class2 class3'>
- *     <a ui-sref="app.user">link</a>
+ *     <a ui-sref="root.user">link</a>
  *   </li>
  * </ul>
  * </pre>

@@ -1,13 +1,13 @@
-body {
+/*body {
     padding-top: 50px;
     padding-bottom: 20px;
-}
+}*/
 
 /* Set padding to keep content from hitting the edges */
-.body-content {
+/*.body-content {
     padding-left: 15px;
     padding-right: 15px;
-}
+}*/
 
 /* Set width on the form input elements since they're 100% wide by default */
 /*input,
@@ -19,6 +19,93 @@ textarea {
 .gridStyle {
     border: 1px solid rgb(212,212,212);
     width: 100%;
-    height: 450px;
-    margin-bottom: 10px
+    height: 400px;
+    margin-bottom: 10px;
+    background: #f5f5f5 !important;
+}
+
+
+/**/
+body{
+	padding-top:80px;
+	padding-bottom:50px;
+	background:#EBEBEB;
+}
+
+/*.glyphicon {
+	line-height: 2.2;
+}*/
+
+
+.navbar {
+	border-radius: 0;
+	background: #006A4E;
+	margin-bottom: 5px;
+}
+.navbar-brand{
+	font-size: 30px;
+	
+}
+
+.navbar-inverse .navbar-brand{
+	color: #FFF;
+}
+
+.navbar-inverse .navbar-brand:hover{
+	color: #c8e6c9;
+}
+
+.navbar-inverse .navbar-nav > li > a{
+	color: #FFF;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover{
+	color: #c8e6c9;
+}
+
+#middle-menu{ 
+	margin-bottom: 5px;
+}
+
+#middle-menu .title{
+	
+}
+
+.po-table{
+	
+}
+
+.po-table > tbody > tr > td{
+	border: 0;
+}
+
+.form-submit-btn{
+	margin-top:10px;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 40px;
+  color: #fff;
+  padding-top:10px;
+  /*background-color: #388e3c;*/
+  background-color: #006A4E;
+  z-index: 1000;
+}
+
+
+.dropdown-menu {
+    background: #006a4e !important;
+}
+
+.dropdown-menu li a:hover {
+    background: #2e8b57;
+    color: #000000;
+}
+
+.form-control {
+    background: #f5f5f5 !important;
 }

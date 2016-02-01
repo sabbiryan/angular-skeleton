@@ -21,10 +21,10 @@ angular.module("app")
                     if ($scope.returnToState)
                         $state.go($scope.returnToState.name, $scope.returnToStateParams);
                     else
-                        $state.go("app.dashboard");
+                        $state.go("root.dashboard");
 
                 } else {
-                    $state.go("app.login", {}, { reload: true });                    
+                    $state.go("root.login", {}, { reload: true });                    
                 }
             };
 

@@ -12439,7 +12439,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	   *
 	   *  {
 	   *    version : 3,
-	   *    file: "app.js",
+	   *    file: "root.js",
 	   *    sections: [{
 	   *      offset: {line:100, column:10},
 	   *      map: {
@@ -32119,7 +32119,7 @@ function (args, quit, logger, build) {
     } else {
         //Just run an app
 
-        //Load the bundled libraries for use in the app.
+        //Load the bundled libraries for use in the root.
         if (commandOption === 'lib') {
             loadLib();
         }

@@ -2,8 +2,11 @@
 
 angular.module("app")
     .controller("DashboardController", [
-        "$scope",
-        function($scope) {
+        "$scope", "UrlService",
+        function ($scope, UrlService) {
+
+            var baseUrl = UrlService.baseUrl;
+
             $scope.myData = [
                 { Id: 1, Date: new Date().toLocaleDateString(), Status: { Name: "Status Value" } },
             ];

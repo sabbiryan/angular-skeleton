@@ -8,10 +8,10 @@ angular.module("app")
             return {
                 get: function() {
                     this.permissionList = [
-                        { Id: 1, UserId: 1, RoleId: 1, Permission: "app.dashboard" },
-                        { Id: 2, UserId: 1, RoleId: 1, Permission: "app.login" },
-                        { Id: 3, UserId: 1, RoleId: 1, Permission: "app.about" },
-                        { Id: 4, UserId: 1, RoleId: 1, Permission: "app.contact" },
+                        { Id: 1, UserId: 1, RoleId: 1, Permission: "root.dashboard" },
+                        { Id: 2, UserId: 1, RoleId: 1, Permission: "root.login" },
+                        { Id: 3, UserId: 1, RoleId: 1, Permission: "root.about" },
+                        { Id: 4, UserId: 1, RoleId: 1, Permission: "root.contact" },
                     ];
 
                     return this.permissionList;

@@ -4,7 +4,7 @@ angular.module("app")
     .config([
         "$stateProvider", "$urlRouterProvider", function($stateProvider, $urlRoutterProvider) {
             $stateProvider
-                .state("app.login", {
+                .state("root.login", {
                     url: "/login",
                     views: {
                         '': {
@@ -13,7 +13,7 @@ angular.module("app")
                         }
                     }
                 })
-                .state("app.accessdenied", {
+                .state("root.accessdenied", {
                     url: "/access-denied",                   
                     views: {
                         '': {

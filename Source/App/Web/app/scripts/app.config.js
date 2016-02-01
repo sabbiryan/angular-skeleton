@@ -13,13 +13,13 @@ angular.module("app", ["ui.router", "ngResource", "ngAnimate", "ngGrid", "ui.boo
 
 
             $stateProvider
-                .state("app", {
+                .state("root", {
                     abstract: true,
                     url: "",
                     template: "<div ui-view class=\"container-fluid slide\"></div>",
                     controller : "AppController"
                 })
-                .state("app.about", {
+                .state("root.about", {
                     url: "/about",
                     views: {
                         "": {
@@ -28,7 +28,7 @@ angular.module("app", ["ui.router", "ngResource", "ngAnimate", "ngGrid", "ui.boo
                         }
                     }
                 })
-                .state("app.contact", {
+                .state("root.contact", {
                     url: "/contact",
                     views: {
                         "": {
@@ -51,21 +51,21 @@ angular.module("app", ["ui.router", "ngResource", "ngAnimate", "ngGrid", "ui.boo
                 $rootScope.toState = toState;
                 $rootScope.toStateParams = toStateParams;
 
-                var isLogin = toState.name === "app.login";
+                var isLogin = toState.name === "root.login";
                 if (isLogin) return;
 
-                var isAccessDenied = toState.name === "app.accessdenied";
+                var isAccessDenied = toState.name === "root.accessdenied";
                 if (isAccessDenied) return;
 
 
                 if (AuthenticationService.authenticate()) {
                     if (!AuthorizationService.authorize(toState)) {
                         event.preventDefault();
-                        $state.go("app.accessdenied");
+                        $state.go("root.accessdenied");
                     }
                 } else {
                     event.preventDefault();
-                    $state.go("app.login");
+                    $state.go("root.login");
                 }
 
 

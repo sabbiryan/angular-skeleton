@@ -1975,7 +1975,7 @@ function (gridUtil, uiGridConstants, uiGridGridMenuService, i18nService) {
  <script>
  var app = angular.module('app', ['ui.grid']);
 
- app.controller('MainCtrl', ['$scope', function ($scope) {
+ root.controller('MainCtrl', ['$scope', function ($scope) {
 
  }]);
  </script>
@@ -2870,7 +2870,7 @@ function ($compile, $timeout, $window, $document, gridUtil, uiGridConstants, i18
    <script>
    var app = angular.module('app', ['ui.grid']);
 
-   app.controller('MainCtrl', ['$scope', function ($scope) {
+   root.controller('MainCtrl', ['$scope', function ($scope) {
           $scope.myStyle = '.blah { border: 1px solid }';
         }]);
    </script>
@@ -3267,10 +3267,10 @@ angular.module('ui.grid')
  *
  *  @example
     <example module="app">
-      <file name="app.js">
+      <file name="root.js">
         var app = angular.module('app', ['ui.grid']);
 
-        app.controller('MainCtrl', ['$scope', function ($scope) {
+        root.controller('MainCtrl', ['$scope', function ($scope) {
           $scope.data = [
             { name: 'Bob', title: 'CEO' },
             { name: 'Frank', title: 'Lowly Developer' }
@@ -7440,7 +7440,7 @@ angular.module('ui.grid')
    * To provide default options for all of the grids within your application, use an angular
    * decorator to modify the GridOptions factory.
    * <pre>
-   * app.config(function($provide){
+   * root.config(function($provide){
    *   $provide.decorator('GridOptions',function($delegate){
    *     var gridOptions;
    *     gridOptions = angular.copy($delegate);
@@ -10510,10 +10510,10 @@ module.service('gridUtil', ['$log', '$window', '$document', '$http', '$templateC
      *
        @example
        <example module="app">
-        <file name="app.js">
+        <file name="root.js">
           var app = angular.module('app', ['ui.grid']);
 
-          app.controller('MainCtrl', ['$scope', 'gridUtil', function ($scope, gridUtil) {
+          root.controller('MainCtrl', ['$scope', 'gridUtil', function ($scope, gridUtil) {
             $scope.name = 'firstName';
             $scope.columnName = function(name) {
               return gridUtil.readableColumnName(name);
@@ -14872,10 +14872,10 @@ module.filter('px', function() {
    *
    *  @example
    <example module="app">
-   <file name="app.js">
+   <file name="root.js">
    var app = angular.module('app', ['ui.grid', 'ui.grid.cellNav']);
 
-   app.controller('MainCtrl', ['$scope', function ($scope) {
+   root.controller('MainCtrl', ['$scope', function ($scope) {
       $scope.data = [
         { name: 'Bob', title: 'CEO' },
             { name: 'Frank', title: 'Lowly Developer' }
@@ -15720,10 +15720,10 @@ module.filter('px', function() {
    *
    *  @example
    <example module="app">
-   <file name="app.js">
+   <file name="root.js">
    var app = angular.module('app', ['ui.grid', 'ui.grid.edit']);
 
-   app.controller('MainCtrl', ['$scope', function ($scope) {
+   root.controller('MainCtrl', ['$scope', function ($scope) {
       $scope.data = [
         { name: 'Bob', title: 'CEO' },
             { name: 'Frank', title: 'Lowly Developer' }
@@ -18407,10 +18407,10 @@ module.filter('px', function() {
    *
    *  @example
    <example module="app">
-   <file name="app.js">
+   <file name="root.js">
    var app = angular.module('app', ['ui.grid', 'ui.grid.exporter']);
 
-   app.controller('MainCtrl', ['$scope', function ($scope) {
+   root.controller('MainCtrl', ['$scope', function ($scope) {
       $scope.data = [
         { name: 'Bob', title: 'CEO' },
             { name: 'Frank', title: 'Lowly Developer' }
@@ -19672,10 +19672,10 @@ module.filter('px', function() {
    *
    *  @example
    <example module="app">
-   <file name="app.js">
+   <file name="root.js">
    var app = angular.module('app', ['ui.grid', 'ui.grid.grouping']);
 
-   app.controller('MainCtrl', ['$scope', function ($scope) {
+   root.controller('MainCtrl', ['$scope', function ($scope) {
       $scope.data = [
         { name: 'Bob', title: 'CEO' },
             { name: 'Frank', title: 'Lowly Developer' }
@@ -20960,10 +20960,10 @@ module.filter('px', function() {
    *
    *  @example
    <example module="app">
-   <file name="app.js">
+   <file name="root.js">
    var app = angular.module('app', ['ui.grid', 'ui.grid.infiniteScroll']);
 
-   app.controller('MainCtrl', ['$scope', function ($scope) {
+   root.controller('MainCtrl', ['$scope', function ($scope) {
       $scope.data = [
         { name: 'Alex', car: 'Toyota' },
             { name: 'Sam', car: 'Lexus' }
@@ -21212,9 +21212,9 @@ module.filter('px', function() {
    *  @description Adds column moving features to the ui-grid directive.
    *  @example
    <example module="app">
-   <file name="app.js">
+   <file name="root.js">
    var app = angular.module('app', ['ui.grid', 'ui.grid.moveColumns']);
-   app.controller('MainCtrl', ['$scope', function ($scope) {
+   root.controller('MainCtrl', ['$scope', function ($scope) {
         $scope.data = [
           { name: 'Bob', title: 'CEO', age: 45 },
           { name: 'Frank', title: 'Lowly Developer', age: 25 },
@@ -21790,10 +21790,10 @@ module.filter('px', function() {
    *  @description Adds pagination features to grid
    *  @example
    <example module="app">
-   <file name="app.js">
+   <file name="root.js">
    var app = angular.module('app', ['ui.grid', 'ui.grid.pagination']);
 
-   app.controller('MainCtrl', ['$scope', function ($scope) {
+   root.controller('MainCtrl', ['$scope', function ($scope) {
       $scope.data = [
         { name: 'Alex', car: 'Toyota' },
         { name: 'Sam', car: 'Lexus' },
@@ -22368,7 +22368,7 @@ module.filter('px', function() {
    <script>
    var app = angular.module('app', ['ui.grid', 'ui.grid.resizeColumns']);
 
-   app.controller('MainCtrl', ['$scope', function ($scope) {
+   root.controller('MainCtrl', ['$scope', function ($scope) {
           $scope.gridOpts = {
             data: [
               { "name": "Ethel Price", "gender": "female", "company": "Enersol" },
@@ -22495,7 +22495,7 @@ module.filter('px', function() {
        <script>
         var app = angular.module('app', ['ui.grid', 'ui.grid.resizeColumns']);
 
-        app.controller('MainCtrl', ['$scope', function ($scope) {
+        root.controller('MainCtrl', ['$scope', function ($scope) {
           $scope.gridOpts = {
             enableColumnResizing: true,
             data: [
@@ -24237,10 +24237,10 @@ module.filter('px', function() {
    *
    *  @example
    <example module="app">
-   <file name="app.js">
+   <file name="root.js">
    var app = angular.module('app', ['ui.grid', 'ui.grid.saveState']);
 
-   app.controller('MainCtrl', ['$scope', function ($scope) {
+   root.controller('MainCtrl', ['$scope', function ($scope) {
       $scope.data = [
         { name: 'Bob', title: 'CEO' },
         { name: 'Frank', title: 'Lowly Developer' }
@@ -24899,10 +24899,10 @@ module.filter('px', function() {
    *
    *  @example
    <example module="app">
-   <file name="app.js">
+   <file name="root.js">
    var app = angular.module('app', ['ui.grid', 'ui.grid.selection']);
 
-   app.controller('MainCtrl', ['$scope', function ($scope) {
+   root.controller('MainCtrl', ['$scope', function ($scope) {
       $scope.data = [
         { name: 'Bob', title: 'CEO' },
             { name: 'Frank', title: 'Lowly Developer' }
@@ -27047,10 +27047,10 @@ module.filter('px', function() {
    *
    *  @example
    <example module="app">
-   <file name="app.js">
+   <file name="root.js">
    var app = angular.module('app', ['ui.grid', 'ui.grid.treeView']);
 
-   app.controller('MainCtrl', ['$scope', function ($scope) {
+   root.controller('MainCtrl', ['$scope', function ($scope) {
       $scope.data = [
         { name: 'Bob', title: 'CEO' },
             { name: 'Frank', title: 'Lowly Developer' }
@@ -27632,10 +27632,10 @@ module.filter('px', function() {
    *  @description Adds validating features to the ui-grid directive.
    *  @example
    <example module="app">
-   <file name="app.js">
+   <file name="root.js">
    var app = angular.module('app', ['ui.grid', 'ui.grid.edit', 'ui.grid.validate']);
 
-   app.controller('MainCtrl', ['$scope', function ($scope) {
+   root.controller('MainCtrl', ['$scope', function ($scope) {
       $scope.data = [
         { name: 'Bob', title: 'CEO' },
             { name: 'Frank', title: 'Lowly Developer' }

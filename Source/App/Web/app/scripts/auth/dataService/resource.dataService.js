@@ -8,10 +8,10 @@ angular.module("app")
                 get: function() {
 
                     this.resources = [
-                        { Id: 1, State: "app.dashboard", Route: "", isPublic: true },
-                        { Id: 2, State: "app.login", Route: "/login", isPublic: true },
-                        { Id: 3, State: "app.about", Route: "/about", isPublic: true },
-                        { Id: 4, State: "app.contact", Route: "/contact", isPublic: true },
+                        { Id: 1, State: "root.dashboard", Route: "", isPublic: true },
+                        { Id: 2, State: "root.login", Route: "/login", isPublic: true },
+                        { Id: 3, State: "root.about", Route: "/about", isPublic: true },
+                        { Id: 4, State: "root.contact", Route: "/contact", isPublic: true },
                     ];
 
                     return this.resources;

@@ -11,7 +11,7 @@ angular.module("app")
                 LocalStorageService.clearUserInfo();
                 $scope.isLoggedIn = false;
                 $rootScope.$broadcast('loggedOut');
-                $state.go("app.login", {}, { reload: true });
+                $state.go("root.login", {}, { reload: true });
             }
 
             $rootScope.$on('loggedIn', function (event, args) {

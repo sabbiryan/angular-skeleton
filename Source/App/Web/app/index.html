@@ -9,15 +9,13 @@
     <link href="../Content/bootstrap/bootstrap.min.css" rel="stylesheet"/>
     <link href="../Content/ng-grid.min.css" rel="stylesheet"/>
     <link href="../Content/ui-bootstrap-csp.css" rel="stylesheet" />
+    <link href="../Content/fileinput.min.css" rel="stylesheet" />
     <!--<link href="../Content/bootstrap/bootstrap-theme.min.css" rel="stylesheet" />
     <link href="../Content/materialize/css/materialize.min.css" rel="stylesheet" />
     <link href="../Content/ui-grid.min.css" rel="stylesheet" />-->
     
     <link rel="stylesheet" href="styles/style.css" />
-
-    <style> body { padding-top: 80px; padding-bottom: 50px; } </style>
-
-
+  
     
     <!-- inject:css -->
     <!-- endinject -->
@@ -36,6 +34,7 @@
 <!-- Scripts -->
     <script src="../Scripts/jquery-2.2.0.min.js"></script>
     <script src="../Scripts/bootstrap.min.js"></script>    
+    <script src="../Scripts/fileinput.min.js"></script>
     <!--<script src="../Scripts/materialize/materialize.min.js"></script>-->
 
 
@@ -90,7 +89,11 @@
 
 
     <!-- inject:js -->
-    <!-- endinject -->
-
+    <!-- endinject -->  
+    <script>
+        $(document).on('click',function(){
+            $('.collapse').collapse('hide');
+        })
+    </script> 
 </body>
 </html>

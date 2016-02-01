@@ -68,7 +68,7 @@ gulp.task('htmls', function () {
 // JS concat & uglify 
 gulp.task('scripts', function () {
 
-    gulp.src(['./app/scripts/app.config.js','./app/scripts/**/*.config.js'])        
+    gulp.src(['./app/scripts/root.config.js','./app/scripts/**/*.config.js'])        
         .pipe(jshint())
         .pipe(jshint.reporter('default'))
         .pipe(plumber())
@@ -77,7 +77,7 @@ gulp.task('scripts', function () {
         .pipe(gulp.dest('./dist/scripts/'))
         .pipe(notify({ message: 'config scripts task complete' }));
 
-    gulp.src(['./app/scripts/app.directive.js', './app/scripts/**/*.directive.js'])
+    gulp.src(['./app/scripts/root.directive.js', './app/scripts/**/*.directive.js'])
        .pipe(jshint())
        .pipe(jshint.reporter('default'))
        .pipe(plumber())
@@ -86,7 +86,7 @@ gulp.task('scripts', function () {
        .pipe(gulp.dest('./dist/scripts/'))
        .pipe(notify({ message: 'directive scripts task complete' }));
 
-    gulp.src(['./app/scripts/app.service.js', './app/scripts/**/*.service.js'])
+    gulp.src(['./app/scripts/root.service.js', './app/scripts/**/*.service.js'])
        .pipe(jshint())
        .pipe(jshint.reporter('default'))
        .pipe(plumber())
@@ -95,7 +95,7 @@ gulp.task('scripts', function () {
        .pipe(gulp.dest('./dist/scripts/'))
        .pipe(notify({ message: 'service scripts task complete' }));
 
-    gulp.src(['./app/scripts/app.controller.js', './app/scripts/**/*.controller.js'])
+    gulp.src(['./app/scripts/root.controller.js', './app/scripts/**/*.controller.js'])
        .pipe(jshint())
        .pipe(jshint.reporter('default'))
        .pipe(plumber())

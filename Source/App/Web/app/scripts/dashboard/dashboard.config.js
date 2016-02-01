@@ -6,7 +6,7 @@ angular.module("app")
         function($stateProvider, $urlRouterProvider) {
 
             $stateProvider
-                .state("app.dashboard", {
+                .state("root.dashboard", {
                     url: "/",
                     views: {
                         "": {

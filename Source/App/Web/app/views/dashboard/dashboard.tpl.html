@@ -3,27 +3,27 @@
     <div class="form-horizontal form-group">
 
         <form ng-submit="search()">
-
-            <div class="col col-xs-9 col-sm-7 col-md-3 col-lg-4">
-                <input type="text" class="form-control" placeholder="Search by Name, Id" ng-model="search.key" required="required" ng-change="isKeyNull(key)"/>
-            </div>
-            <!--<div class="col col-xs-3 col-sm-2 col-md-2 col-lg-2">-->
-                <button type="submit" class="btn btn-default pull-left"><span class="glyphicon glyphicon-search"></span></button>
-                <button type="reset" class="btn btn-default pull-left"><span class="glyphicon glyphicon-remove" ng-click="getProducts()"></span></button>
-            <!--</div>-->
+            <div class="col col-xs-12 col-sm-8 col-md-4 col-lg-4">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search by Name, Id" ng-model="search.key" required="required">
+                    <span type="submit" class="input-group-addon"><a style="cursor: pointer; text-decoration: none" class="glyphicon glyphicon-search btn-floating" ng-click="search()"></a></span>
+                </div>
+            </div>            
             <br class="visible-xs-block"/>
             <br class="visible-xs-block"/>
-            <div class="col col-xs-12 col-sm-3 col-md-2 col-lg-2">
+            <div class="col col-xs-12 col-sm-4 col-md-2 col-lg-2">
                 <select class="form-control pull-right" ng-options="i.Id as i.Name for i in filters" ng-model="search.filterId" ng-change="search()"></select>
             </div>
         </form>
         <br class="visible-sm-block visible-xs-block" />
         <br class="visible-sm-block visible-xs-block"/>
-        <div class="col col-xs-12 col-sm-12 col-md-5 col-lg-4">
-            <button ui-sref="#" type="button" class="btn btn-danger">Item</button>
-            <button ui-sref="#" type="button" class="btn btn-info">Item</button>
-            <button ui-sref="#" type="button" class="btn btn-success">Item</button>
-            <button ui-sref="#  " type="button" class="btn btn-warning">Item</button>
+        <div class="col col-xs-12 col-sm-12 col-md-4 col-lg-4">
+            <div class="btn-group btn-group-justified" role="group">
+                <a ui-sref="#" class="btn btn-danger">Item</a>
+                <a ui-sref="#" class="btn btn-info">Item</a>
+                <a ui-sref="#" class="btn btn-success">Item</a>
+                <a ui-sref="#" class="btn btn-warning">Item</a>
+            </div>
         </div>
         <br /><br />
     </div>
