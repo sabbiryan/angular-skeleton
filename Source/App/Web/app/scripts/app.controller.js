@@ -3,12 +3,12 @@
 angular.module("app")
     .controller("AppController", [
         "$rootScope", "$scope", "$state", "$window", "LocalStorageService",
-        function ($rootScope, $scope, $state, $window, LocalStorageService) {
+        function ($rootScope, $scope, $state, $window, localStorageService) {
 
-            $scope.isLoggedIn = LocalStorageService.getUserIsLoggedIn();
+            $scope.isLoggedIn = localStorageService.getUserIsLoggedIn();
 
             $scope.logout = function () {
-                LocalStorageService.clearUserInfo();
+                localStorageService.clearUserInfo();
                 $scope.isLoggedIn = false;
                 $rootScope.$broadcast('loggedOut');
                 $state.go("root.login", {}, { reload: true });
@@ -16,7 +16,7 @@ angular.module("app")
 
             $rootScope.$on('loggedIn', function (event, args) {
                 console.log(event);
-                $scope.isLoggedIn = LocalStorageService.getUserIsLoggedIn();
+                $scope.isLoggedIn = localStorageService.getUserIsLoggedIn();
             });
 
             $rootScope.$on('loggedOut', function (event, args) {

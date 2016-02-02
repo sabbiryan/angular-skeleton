@@ -3,7 +3,7 @@
 angular.module("app")
     .controller("LoginController", [
         "$rootScope", "$scope", "$state", "AuthenticationService",
-        function ($rootScope, $scope, $state, AuthenticationService) {
+        function ($rootScope, $scope, $state, authenticationService) {
 
             $scope.credentials = {
                 Username: "",
@@ -12,7 +12,7 @@ angular.module("app")
 
             $scope.login = function(credentials) {
 
-                var isLoggedInSuccess = AuthenticationService.authenticate($scope.credentials);
+                var isLoggedInSuccess = authenticationService.authenticate($scope.credentials);
 
                 if (isLoggedInSuccess) {
 

@@ -3,20 +3,20 @@
 angular.module("app")
     .factory("AuthenticationService", [
         "$q", "$http", "$timeout", "UserDataService", "LocalStorageService",
-        function($q, $http, $timeout, UserDataService, LocalStorageService) {
+        function($q, $http, $timeout, userDataService, localStorageService) {
 
             return {
                
                 authenticate: function(identity) {
 
-                    if (LocalStorageService.getUserIsLoggedIn()) return true;
+                    if (localStorageService.getUserIsLoggedIn()) return true;
 
                     if (identity) {
-                        var isloginSuccess = UserDataService.isValidUser(identity);
+                        var isloginSuccess = userDataService.isValidUser(identity);
                         if (isloginSuccess) return true;
                     }
 
-                    LocalStorageService.clearUserInfo();
+                    localStorageService.clearUserInfo();
 
                     return false;
                 }
@@ -28,7 +28,7 @@ angular.module("app")
     
     .factory("AuthorizationService", [
         "$rootScope", "$state", "AuthenticationService", "PermissionDataService", "LocalStorageService",
-        function ($rootScope, $state, AuthenticationService, PermissionDataService, LocalStorageService) {
+        function ($rootScope, $state, authenticationService, permissionDataService, localStorageService) {
 
             return {
 
@@ -37,7 +37,7 @@ angular.module("app")
                     //var userInfo = LocalStorageService.getUserInfo();
                     //var permission = PermissionDataService.checkUserPermission(userInfo, toState);
 
-                    var permission = PermissionDataService.checkUserTokenBasedPermission(toState);
+                    var permission = permissionDataService.checkUserTokenBasedPermission(toState);
 
                     return permission;
                 }

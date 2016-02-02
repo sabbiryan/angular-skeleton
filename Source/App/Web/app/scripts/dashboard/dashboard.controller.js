@@ -3,9 +3,9 @@
 angular.module("app")
     .controller("DashboardController", [
         "$scope", "UrlService",
-        function ($scope, UrlService) {
+        function ($scope, urlService) {
 
-            var baseUrl = UrlService.baseUrl;
+            var baseUrl = urlService.baseUrl;
 
             $scope.myData = [
                 { Id: 1, Date: new Date().toLocaleDateString(), Status: { Name: "Status Value" } },

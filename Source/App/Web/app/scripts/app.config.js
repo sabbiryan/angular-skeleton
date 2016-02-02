@@ -41,7 +41,7 @@ angular.module("app", ["ui.router", "ngResource", "ngAnimate", "ngGrid", "ui.boo
     ])
     .run([
         "$rootScope", "$state", "$stateParams", "AuthenticationService", "AuthorizationService",
-        function ($rootScope, $state, $stateParams, AuthenticationService, AuthorizationService) {
+        function ($rootScope, $state, $stateParams, authenticationService, authorizationService) {
             $rootScope.$state = $state;
             $rootScope.$stateParams = $stateParams;
 
@@ -58,8 +58,8 @@ angular.module("app", ["ui.router", "ngResource", "ngAnimate", "ngGrid", "ui.boo
                 if (isAccessDenied) return;
 
 
-                if (AuthenticationService.authenticate()) {
-                    if (!AuthorizationService.authorize(toState)) {
+                if (authenticationService.authenticate()) {
+                    if (!authorizationService.authorize(toState)) {
                         event.preventDefault();
                         $state.go("root.accessdenied");
                     }

@@ -11,10 +11,12 @@ angular.module("app")
             var self = this;
 
             self.urls = {};
+            self.urls.baseUrl = "http://localhost:5000/";
+            self.urls.baseApi = "http://localhost:5000/api/";
 
-            self.urls.baseUrl = "http://localhost:5000/api/";
-            self.urls.dashboard = "http://localhost:5000/api/Dashboard";
-            self.urls.home = "http://localhost:5000/api/Home";
+            self.urls.token = self.urls.baseUrl + "token";
+            self.urls.dashboard = self.urls.baseApi + "Dashboard";
+            self.urls.home =  self.urls.baseApi + "Home";
 
             return self.urls;
         }
