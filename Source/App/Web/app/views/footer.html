@@ -1,18 +1,10 @@
-﻿<style>
-    .navbar {
-        background: #218257;
-        color: white;
-    }
-</style>
-
-
-<div class="nav navbar navbar-fixed-bottom">
-
+﻿<div class="nav navbar navbar-fixed-bottom" style="background: #218257; color: white; margin-bottom: -1px">
+    
     <footer>
-        <div class="container">
+        <div class="container" ng-controller="AppController">
             <p style="padding-top: 13px">
-
-                <span class="pull-right">Powered by &copy; <a target="_blank" href="http://www.securebitlink.com" style="color: mediumblue"><strong class="">Secure Bit Link</strong></a></span>
+                <span class="pull-left">&copy; {{copyright | date: 'yyyy'}}, <a target="_blank" href="http://www.securebitlink.com" style="color: white">Secure Bit Link.</a></span>
+                <span> &nbsp; All Rights Reserved.</span>
             </p>
         </div>
     </footer>

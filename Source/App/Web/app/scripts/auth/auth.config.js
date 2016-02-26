@@ -8,7 +8,7 @@ angular.module("app")
                     url: "/login",
                     views: {
                         '': {
-                            templateUrl: "views/auth/login.tpl.html",
+                            templateUrl: "app/views/auth/login.tpl.html",
                             controller: "LoginController"
                         }
                     }
@@ -17,7 +17,7 @@ angular.module("app")
                     url: "/access-denied",                   
                     views: {
                         '': {
-                            templateUrl: "views/auth/access-denied.tpl.html"
+                            templateUrl: "app/views/auth/access-denied.tpl.html"
                         }
                     }
                 });

@@ -23,7 +23,7 @@ angular.module("app", ["ui.router", "ngResource", "ngAnimate", "ngGrid", "ui.boo
                     url: "/about",
                     views: {
                         "": {
-                            templateUrl: "views/about/about.tpl.html",
+                            templateUrl: "app/views/about/about.tpl.html",
                             controller: "AboutController"
                         }
                     }
@@ -32,7 +32,7 @@ angular.module("app", ["ui.router", "ngResource", "ngAnimate", "ngGrid", "ui.boo
                     url: "/contact",
                     views: {
                         "": {
-                            templateUrl: "views/contact/contact.tpl.html",
+                            templateUrl: "app/views/contact/contact.tpl.html",
                             controller: "ContactController"
                         }
                     }

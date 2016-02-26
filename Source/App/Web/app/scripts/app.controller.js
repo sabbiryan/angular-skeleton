@@ -23,5 +23,6 @@ angular.module("app")
                 console.log(event);
             });
 
+            $scope.copyright = new Date();
         }
     ]);

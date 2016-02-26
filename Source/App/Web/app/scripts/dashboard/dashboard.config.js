@@ -10,7 +10,7 @@ angular.module("app")
                     url: "/",
                     views: {
                         "": {
-                            templateUrl: "views/dashboard/dashboard.tpl.html",
+                            templateUrl: "app/views/dashboard/dashboard.tpl.html",
                             controller: "DashboardController"
                         }
                     }

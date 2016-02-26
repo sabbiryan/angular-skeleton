@@ -43,7 +43,8 @@ gulp.task('images', function () {
         .pipe(changed(imgDst))
         .pipe(imagemin())
         .pipe(gulp.dest(imgDst))
-        .pipe(notify({ message: 'images task complete' }));
+        //.pipe(notify({ message: 'images task complete' }))
+    ;
 });
 
 // minify new or changed HTML pages
@@ -55,12 +56,14 @@ gulp.task('htmls', function () {
         .pipe(changed(htmlDst))
         .pipe(minifyHTML())
         .pipe(gulp.dest(htmlDst))
-        .pipe(notify({ message: 'htmls task complete' }));
+        //.pipe(notify({ message: 'htmls task complete' }))
+    ;
 
-    gulp.src(['./app/index.html'])
-        .pipe(changed(htmlDst))
-        .pipe(gulp.dest(htmlDst))
-        .pipe(notify({ message: 'index copy to dist task complete' }));
+    //gulp.src(['./app/index.html'])
+    //    .pipe(changed(htmlDst))
+    //    .pipe(gulp.dest(htmlDst))
+    //    //.pipe(notify({ message: 'index copy to dist task complete' }))
+    //;
 });
 
 
@@ -75,7 +78,8 @@ gulp.task('scripts', function () {
         .pipe(concat('config-scripts.min.js'))
         .pipe(uglify())
         .pipe(gulp.dest('./dist/scripts/'))
-        .pipe(notify({ message: 'config scripts task complete' }));
+        //.pipe(notify({ message: 'config scripts task complete' }))
+    ;
 
     gulp.src(['./app/scripts/root.directive.js', './app/scripts/**/*.directive.js'])
        .pipe(jshint())
@@ -84,7 +88,8 @@ gulp.task('scripts', function () {
        .pipe(concat('directive-scripts.min.js'))
        .pipe(uglify())
        .pipe(gulp.dest('./dist/scripts/'))
-       .pipe(notify({ message: 'directive scripts task complete' }));
+       //.pipe(notify({ message: 'directive scripts task complete' }))
+    ;
 
     gulp.src(['./app/scripts/root.service.js', './app/scripts/**/*.service.js'])
        .pipe(jshint())
@@ -93,7 +98,8 @@ gulp.task('scripts', function () {
        .pipe(concat('service-scripts.min.js'))
        .pipe(uglify())
        .pipe(gulp.dest('./dist/scripts/'))
-       .pipe(notify({ message: 'service scripts task complete' }));
+       //.pipe(notify({ message: 'service scripts task complete' }))
+    ;
 
     gulp.src(['./app/scripts/root.controller.js', './app/scripts/**/*.controller.js'])
        .pipe(jshint())
@@ -102,7 +108,8 @@ gulp.task('scripts', function () {
        .pipe(concat('controller-scripts.min.js'))
        .pipe(uglify())
        .pipe(gulp.dest('./dist/scripts/'))
-       .pipe(notify({ message: 'controller scripts task complete' }));
+       //.pipe(notify({ message: 'controller scripts task complete' }))
+    ;
     
 });
 
@@ -110,11 +117,12 @@ gulp.task('scripts', function () {
 // CSS concat, auto-prefix and minify
 gulp.task('styles', function () {
     gulp.src(['./app/styles/**/*.css'])
-        .pipe(concat('styles.min.css'))
+        .pipe(concat('style.min.css'))
         .pipe(autoprefixer('last 2 versions'))
         .pipe(minifyCSS())
         .pipe(gulp.dest('./dist/styles/'))
-        .pipe(notify({ message: 'styles task complete' }));
+        //.pipe(notify({ message: 'styles task complete' }))
+    ;
     
 });
 
@@ -154,6 +162,6 @@ gulp.task('watch', function () {
 });
 
 // Default task
-gulp.task('default', ['clean','scripts', 'styles', 'images', 'htmls', 'watch' ]);
+gulp.task('default', ['clean','scripts', 'styles', 'images', 'htmls' ]);
 
 
